@@ -1,12 +1,8 @@
 import './App.css'
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { LoginPage } from './auth/views/login'
-import { ErrorPage } from './common/components/ErrorPage'
+import { BrowserRouter } from 'react-router-dom'
 import Header from './home/views/components/Header'
-import IndexPage from './home/views/home'
-import { TaskPage } from './tasks/views/task-details'
-import { TasksPage } from './tasks/views/tasks-list'
+import AppRoutes from './common/routes/routes-hook'
 
 function App() {
   return (
@@ -14,15 +10,7 @@ function App() {
       <BrowserRouter>
         <Header />
 
-        <Routes>
-          <Route path='/' element={<IndexPage />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/tasks'>
-            <Route index element={<TasksPage />} />
-            <Route path=':id' element={<TaskPage />} />
-          </Route>
-          <Route path='*' element={<ErrorPage />} />
-        </Routes>
+        <AppRoutes />
 
         <footer>
           <p>Fim por fim feito por mim (Giro)!</p>
